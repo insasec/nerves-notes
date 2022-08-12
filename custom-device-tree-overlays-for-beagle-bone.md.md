@@ -1,6 +1,7 @@
 # Custom device tree overlays for Beagle Bone (Black) running nerves
 
-## The recent release of the  [delux](https://hex.pm/packages/delux)  library raised my interest in device tree overlays again. delux only works with LEDs known to the  `led`  subsystem in Linux. Like many others I was driving LEDs manually using  [Circuits.GPIO](https://github.com/elixir-circuits/circuits_gpio). However device tree overlays allow you to logically “convert” GPIOs into LEDs — at least from the kernel point of view — not physically of course. This article shows you how to create those overlays and how to integrate them into your custom nerves Beagle Bone system.
+ The recent release of the  [delux](https://hex.pm/packages/delux)  library raised my interest in device tree overlays again. delux only works with LEDs known to the  `led`  subsystem in Linux. Like many others I was driving LEDs manually using  [Circuits.GPIO](https://github.com/elixir-circuits/circuits_gpio). However device tree overlays allow you to logically “convert” GPIOs into LEDs — at least from the kernel point of view — not physically of course. This article shows you how to create those overlays and how to integrate them into your custom nerves Beagle Bone system.
+ 
 ## Device tree overlay to “convert” GPIOs into LEDs
 
 On many SBC platforms (including the Beagle Bone family) the physically available external pins are muxed. I.e. they can be configured to perform different functions (e.g. GPIO, I2C, PMW, ADC …).
@@ -9,7 +10,7 @@ This configuration can be changed during runtime (to a limited extend) using too
 
 Device tree overlays are used by the Linux kernel to configure hardware incl. GPIO pins. In addition to properties like input/output use or pull up/down resistors you can also change by which kernel sub system a pin is handled. E.g. the following device tree overlay configures and converts four pins from GPIO use to LED. I.e. from the kernel point of view they are not GPIOs anymore, but LEDs accessible under  `/sys/class/leds/`:
 
-```plain
+```dts
 /dts-v1/;
 /plugin/;
 
@@ -77,7 +78,7 @@ Device tree overlays are used by the Linux kernel to configure hardware incl. GP
 
 ### Header & includes
 
-```plain
+```dts
 /dts-v1/;
 /plugin/;
 
@@ -89,13 +90,12 @@ The first line of the overlay tells the device tree overlay compiler  `dtc`  whi
 
 ### Visibility in sysfs
 
-```plain
+```dts
 &{/chosen} {
 	overlays {
 		MYFW_GPIO_LEDs.mycompany.com-overlays = __TIMESTAMP__;
 	};
 };
-
 ```
 
 This part tell Linux to create a entry called  `MYFW_GPIO_LEDs.mycompany.com-overlays`  under  `/sys/firmware/devicetree/base/chosen/overlays`  if this overlay is loaded/active. The content of the file will be the timestamp of the preprocessor run (`__TIMSTAMP__`  is actually a C preprocessor macro):
@@ -385,5 +385,5 @@ This will force buildroot to clean the  `extra-dts`  build directory and rebuild
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0NjM2NTgzN119
+eyJoaXN0b3J5IjpbLTM3MDExODgwNF19
 -->
