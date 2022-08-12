@@ -187,7 +187,7 @@ This part configures the four pins as GPIOs (`MUX_MODE7`) and activates pull-dow
 
 This part finally allows us to “convert” GPIOs to LEDs. I.e. The Linux  `led`  subsystem will use GPIO pins to switch LEDs.
 
-```plain
+```dts
 &{/} {
 	leds {
 		pinctrl-names = "default";
@@ -201,7 +201,7 @@ Here we’ll referencing the  `led`  branch root of the device tree (`&{/}`). So
 
 ### Defining GPIO based LEDs
 
-```plain
+```dts
 		myfw_red_led {
 			label = "myfw:red:indicator";
 			gpios = <&gpio2 03 GPIO_ACTIVE_HIGH>;
@@ -231,7 +231,7 @@ This finally defines the actual LEDs. Each LED has a logical label which needs t
 
 The  `label`  key will define the name of the LED in the  `sys`  filesystem. The general naming scheme is  `devicename:color:function`  as defined in  [LED handling under Linux](https://docs.kernel.org/leds/leds-class.html)[](https://docs.kernel.org/leds/leds-class.html)  with available colors and functions defined in  `include/dt-bindings/leds/common.h`.
 
-```plain
+```elixir
 iex(1)> ls "/sys/class/leds"
 beaglebone:green:usr0      beaglebone:green:usr1      beaglebone:green:usr2      
 beaglebone:green:usr3      mmc0::                     mmc1::                     
@@ -249,11 +249,9 @@ Please note that you can also define triggers in the device tree. E.g. the blue 
 
 You  _can_  compile and install the device tree overlay manually. Doing so has the small advantage that it doesn’t require a  [custom nerves system](https://hexdocs.pm/nerves/customizing-systems.html). The basic steps are
 
--   Run your  `*.dts`  file through the C preprocessor including the  **matching!**  kernel sources to resolve includes and macros.
-    
--   Run the result through the device tree compiler  `dtc`.
-    
--   Copy the resulting  `*.dtbo`  file to the  `rootfsoverlay/lib/firmware/ directory`  in your nerves project.
+* Run your  `*.dts`  file through the C preprocessor including the  **matching!**  kernel sources to resolve includes and macros.
+* Run the result through the device tree compiler  `dtc`.
+* Copy the resulting  `*.dtbo`  file to the  `rootfsoverlay/lib/firmware/ directory`  in your nerves project.
     
 
 The following script might be a starting point (untested!):
@@ -385,5 +383,5 @@ This will force buildroot to clean the  `extra-dts`  build directory and rebuild
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1ODU1MzIyXX0=
+eyJoaXN0b3J5IjpbNjA5ODMzMDgyXX0=
 -->
