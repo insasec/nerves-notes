@@ -1,11 +1,6 @@
 # Custom device tree overlays for Beagle Bone (Black) running nerves
 
 ## The recent release of the  [delux](https://hex.pm/packages/delux)  library raised my interest in device tree overlays again. delux only works with LEDs known to the  `led`  subsystem in Linux. Like many others I was driving LEDs manually using  [Circuits.GPIO](https://github.com/elixir-circuits/circuits_gpio). However device tree overlays allow you to logically “convert” GPIOs into LEDs — at least from the kernel point of view — not physically of course. This article shows you how to create those overlays and how to integrate them into your custom nerves Beagle Bone system.
-
-[Udo Schneider](https://pubray.com/udo-schneider)  [August 11](https://pubray.com/udo-schneider/custom-device-tree-overlays-for-beagle-bone-black-running-nerves)
-
-[nerves](https://pubray.com/udo-schneider/_/search?tag=nerves)  [elixir](https://pubray.com/udo-schneider/_/search?tag=elixir)  [beaglebone](https://pubray.com/udo-schneider/_/search?tag=beaglebone)  [linux](https://pubray.com/udo-schneider/_/search?tag=linux)
-
 ## Device tree overlay to “convert” GPIOs into LEDs
 
 On many SBC platforms (including the Beagle Bone family) the physically available external pins are muxed. I.e. they can be configured to perform different functions (e.g. GPIO, I2C, PMW, ADC …).
@@ -390,5 +385,5 @@ This will force buildroot to clean the  `extra-dts`  build directory and rebuild
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MDQzMjgyNV19
+eyJoaXN0b3J5IjpbLTk0NjM2NTgzN119
 -->
