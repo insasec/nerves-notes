@@ -253,10 +253,9 @@ You  _can_  compile and install the device tree overlay manually. Doing so has t
 * Run the result through the device tree compiler  `dtc`.
 * Copy the resulting  `*.dtbo`  file to the  `rootfsoverlay/lib/firmware/ directory`  in your nerves project.
     
-
 The following script might be a starting point (untested!):
 
-```plain
+```bash
 #!/bin/sh
 
 LINUX_SRCDIR="UNDEFINED" # Please point to the /matching/ kernel sources here
@@ -273,7 +272,7 @@ cp ${DTBO_FILE} ${FIRMWARE_DIR}
 
 A recent  `nerves_system_bbb`  [commit](https://github.com/nerves-project/nerves_system_bbb/commit/8923c3f4fb232d55c7790c77737ab8378cc1079f)  makes it super simple to compile/install custom device tree overlays including automatic inclusion of Linux includes and macros. As of today (Aug, 11th, 2022) this is not yet part of the official  `nerves_system_bbb`  release. So you either need to follow  `main`  or update your  `package/extra-dts/extra-dts.mk`  manually.
 
-```plain
+```Makefile
 #############################################################
 #
 # extra-dts
@@ -300,7 +299,6 @@ endef
 
 
 $(eval $(generic-package))
-
 ```
 
 One the updated file is in place (or the next version of  `nerves_system_bbb`  is released) you can simply drop your custom  `*.dts`  file into the  `package/extra-dts/`  directory of your custom system. Nerves will take care of the rest (i.e. compiling the file and putting into  `/lib/firmware/`  in the target filesystem).
@@ -309,13 +307,13 @@ One the updated file is in place (or the next version of  `nerves_system_bbb`  i
 
 As documented in  [nerves_system_bbb/Device tree overlays](https://github.com/nerves-project/nerves_system_bbb#device-tree-overlays)  there are two ways to load your custom overlay. You can either load the overlay by conconfiguring U-Boot:
 
-```plain
+```elixir
 cmd("fw_setenv uboot_overlay_addr7 /lib/firmware/myfw-gpio-leds.dtbo")
 ```
 
 Or you can add those settings to  `fwup_include/provisioning.conf`:
 
-```plain
+```u
 [...]
 uboot_setenv(uboot-env, "uboot_overlay_addr7", "/lib/firmware/myfw-gpio-leds.dtbo")
 [...]
@@ -383,5 +381,5 @@ This will force buildroot to clean the  `extra-dts`  build directory and rebuild
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA5ODMzMDgyXX0=
+eyJoaXN0b3J5IjpbLTgyODk3NzI1Nl19
 -->
