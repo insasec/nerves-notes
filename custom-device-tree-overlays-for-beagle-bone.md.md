@@ -33,8 +33,8 @@ Device tree overlays are used by the Linux kernel to configure hardware incl. GP
 &am33xx_pinmux {
 	bb_gpio_led_pins: pinmux_bb_gpio_led_pins {
 		pinctrl-single,pins = <
-			AM33XX_PADCONF(AM335X_PIN_GPMC_OEN_REN, PIN_OUTPUT_PULLDOWN, MUX_MODE7)	/* P8_08: Red LED */
-			AM33XX_PADCONF(AM335X_PIN_GPMC_WEN, PIN_OUTPUT_PULLDOWN, MUX_MODE7)		/* P8_10: Green LED */
+			AM33XX_PADCONF(AM335X_PIN_GPMC_OEN_REN, PIN_OUTPUT_PULLDOWN, MUX_MODE7) /* P8_08: Red LED */
+			AM33XX_PADCONF(AM335X_PIN_GPMC_WEN, PIN_OUTPUT_PULLDOWN, MUX_MODE7)  /* P8_10: Green LED */
 			AM33XX_PADCONF(AM335X_PIN_GPMC_AD12, PIN_OUTPUT_PULLDOWN, MUX_MODE7)	/* P8_12: Blue LED */
 			AM33XX_PADCONF(AM335X_PIN_GPMC_AD10, PIN_OUTPUT_PULLDOWN, MUX_MODE7)	/* P8_14: Yellow LED */
 		>;
@@ -378,5 +378,5 @@ $ make extra-dts-dirclean && make
 
 This will force buildroot to clean the  `extra-dts`  build directory and rebuild the system. Based on your setup you might also need to run  `mix compile`  or even  `mix nerves.artifact`  and upload the artifact. Still much faster than rebuilding the whole system.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI2MTI0MDE1XX0=
+eyJoaXN0b3J5IjpbOTQ5NDIwMzM5LDYyNjEyNDAxNV19
 -->
