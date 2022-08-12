@@ -313,7 +313,7 @@ cmd("fw_setenv uboot_overlay_addr7 /lib/firmware/myfw-gpio-leds.dtbo")
 
 Or you can add those settings to  `fwup_include/provisioning.conf`:
 
-```u
+```bash
 [...]
 uboot_setenv(uboot-env, "uboot_overlay_addr7", "/lib/firmware/myfw-gpio-leds.dtbo")
 [...]
@@ -325,7 +325,7 @@ My take on these options is that I prefer the second one for overlays which shou
 
 That’s it! After building/installing the firmware (and reboot if you used the first/dynamic approach above) your custom device tree overlay is ready/loaded and you can control LEDs by simply writing to  `sysfs`  files:
 
-```plain
+```elixir
 iex(1)> cd "/sys/class/leds/myfw:red:indicator"
 iex(3)> File.write("brightness", "255") # Enable LED
 :ok
@@ -333,9 +333,9 @@ iex(8)> File.write("brightness", "0") # Disable LED
 :ok
 ```
 
-It’s of course much more convinient to use the delux library:
+It’s of course much more convenient to use the delux library:
 
-```plain
+```elixir
 iex(1)> Delux.start_link(indicators: %{  
 ...(1)> port: %{green: "myfw:green:indicator"},
 ...(1)> read: %{blue: "myfw:blue:indicator"},  
@@ -343,7 +343,6 @@ iex(1)> Delux.start_link(indicators: %{
 ...(1)> error: %{red: "myfw:red:indicator"}})
 {:ok, #PID<0.1132.0>}
 iex(2)> Delux.render(pid, %{error: Delux.Effects.blink(:red,2)})
-
 ```
 
 And voilà … the red/error LED is blinking with 2Hz!
@@ -354,7 +353,7 @@ And voilà … the red/error LED is blinking with 2Hz!
 
 If you are actively developing your overlay it’s sometimes hard to be sure which version of the overlay is actually active on the device. This is were the string given to chosen section comes into play because you can basically provide any string here. E.g. a version number:
 
-```plain
+```dts
 &{/chosen} {
 	overlays {
 		MYFW_GPIO_LEDs.mycompany.com-overlays = "Version 0.0.1";
@@ -364,7 +363,7 @@ If you are actively developing your overlay it’s sometimes hard to be sure whi
 
 This can then be easily checked/verified on the device:
 
-```plain
+```elixir
 iex(1)> cat "/sys/firmware/devicetree/base/chosen/overlays/MYFW_GPIO_LEDs.mycompany.com-overlays"
 Version 0.0.1
 ```
@@ -373,13 +372,11 @@ Version 0.0.1
 
 If you are actively developing your overlay always rebuilding the complete system/firmware takes too long. To force  `buildroot`  to pickup changes to your  `*.dts`  files in  `package/extra-dts`  the execute the following in your  `mix nerves.system.shell`:
 
-```plain
+```bash
 $ make extra-dts-dirclean && make
 ```
 
 This will force buildroot to clean the  `extra-dts`  build directory and rebuild the system. Based on your setup you might also need to run  `mix compile`  or even  `mix nerves.artifact`  and upload the artifact. Still much faster than rebuilding the whole system.
-
-> Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyODk3NzI1Nl19
+eyJoaXN0b3J5IjpbNjI2MTI0MDE1XX0=
 -->
