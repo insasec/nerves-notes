@@ -100,7 +100,7 @@ The first line of the overlay tells the device tree overlay compiler  `dtc`  whi
 
 This part tell Linux to create a entry called  `MYFW_GPIO_LEDs.mycompany.com-overlays`  under  `/sys/firmware/devicetree/base/chosen/overlays`  if this overlay is loaded/active. The content of the file will be the timestamp of the preprocessor run (`__TIMSTAMP__`  is actually a C preprocessor macro):
 
-```plain
+```elixir
 iex(1)> cmd "ls -alh /sys/firmware/devicetree/base/chosen/overlays"
 -r--r--r--    1 root     root           9 Aug 11 09:20 name
 -r--r--r--    1 root     root          25 Aug 11 09:20 BB-BONE-eMMC1-01-00A0.bb.org-overlays
@@ -115,7 +115,7 @@ Wed Aug 10 13:18:16 2022
 
 ### Disable pin-muxing for On-Chip-Peripherals
 
-```plain
+```dts
 &ocp {
 	P8_08_pinmux { status = "disabled"; };	/* P8_08: GPIO67, gpio2, 3 */
 	P8_10_pinmux { status = "disabled"; };	/* P8_10: GPIO68, gpio2, 4 */
@@ -132,7 +132,7 @@ Please note that physical GPIO pins on the pin headers are known by different na
 
 ### Configuring GPIOs
 
-```plain
+```dts
 &am33xx_pinmux {
 	bb_gpio_led_pins: pinmux_bb_gpio_led_pins {
 		pinctrl-single,pins = <
@@ -149,7 +149,7 @@ This part configures the four pins as GPIOs (`MUX_MODE7`) and activates pull-dow
 
 ### Converting GPIOs to LEDs
 
-```plain
+```dts
 &{/} {
 	leds {
 		pinctrl-names = "default";
@@ -385,5 +385,5 @@ This will force buildroot to clean the  `extra-dts`  build directory and rebuild
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MDExODgwNF19
+eyJoaXN0b3J5IjpbMzQ1ODU1MzIyXX0=
 -->
