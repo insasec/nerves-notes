@@ -50,7 +50,7 @@ If you plugin the card into a PC you are also able to read/write on this partiti
 > **Note**
 > This is a note
 
-> :warning: **If you are using mobile browser**: Be very careful here!
+> :warning: **If you are using mobile browser**: Be very careful here! 
 
 > #### Note {: .info}
 >
@@ -130,6 +130,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MzUzMjE2OCw3MDAwMTUwMDMsMTI4MD
-AyNDAwNywxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbLTE1NjUyMzc0MDgsNzAwMDE1MDAzLDEyOD
+AwMjQwMDcsMTQ3MDk3NDk1MV19
 -->
