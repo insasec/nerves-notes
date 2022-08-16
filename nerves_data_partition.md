@@ -1,5 +1,7 @@
-# `/data` on a nerves system
-A nerves application shoul
+# `/data` on a Nerves system
+A Nerves application should only store user data under `/data`. On first glance one might assume that `/data` is a mount point for the application data partition. However checking on a Nerves system yields:
+```shell
+
 
 ```elixir
 iex(1)> cmd "mount"
@@ -103,5 +105,5 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NDQ5MDc5MiwxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbMTA3NjA0NDk5OSwxNDcwOTc0OTUxXX0=
 -->
