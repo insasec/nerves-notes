@@ -47,14 +47,15 @@ iex(1)> File.write("/root/user.data", "Hello World")
 
 If you plugin the card into a PC you are also able to read/write on this partition. The biggest limitation is support for the `f2fs` filesystem though. AFAIK `f2fs` is only supported on Linux systems at the moment. If you plug the SD Card into a PC or Mac you won't see the content!
 
+> **Note**
+> This is a note
+
+> :warning: **If you are using mobile browser**: Be very careful here!
+
 > #### Note {: .info}
-
 >
-
 > Please note that this function may not return all USB Devices known in the
-
 > system. Only devices which were *added to the system after `NervesUEvent` as
-
 > been started* are returned!
 
 udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
@@ -129,6 +130,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMTc3MjUyMSw3MDAwMTUwMDMsMTI4MD
+eyJoaXN0b3J5IjpbLTc3MzUzMjE2OCw3MDAwMTUwMDMsMTI4MD
 AyNDAwNywxNDcwOTc0OTUxXX0=
 -->
