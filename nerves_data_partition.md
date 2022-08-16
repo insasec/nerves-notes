@@ -19,7 +19,7 @@ drwxr-xr-x    4 root     root        4.0K Jul 25  2020 .
 0
 ``` 
 
-Checking the mountpoints one can
+Checking the mountpoints one can see that `/root` is a [`f2fs` Filesystem](https://en.wikipedia.org/wiki/F2FS) mounted from 
 ```elixir
 iex(1)> cmd "mount"
 /dev/mmcblk0p3 on / type squashfs (ro,relatime)
@@ -114,6 +114,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY0OTc5NjMyLDEyODAwMjQwMDcsMTQ3MD
+eyJoaXN0b3J5IjpbNzAwMDE1MDAzLDEyODAwMjQwMDcsMTQ3MD
 k3NDk1MV19
 -->
