@@ -73,12 +73,9 @@ udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
 nerves_ssh  user.data
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ cat user.data 
-Hello Worldudos
+Hello World
 ```
-
-
-> Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NzY2MzIwNiw3MDAwMTUwMDMsMTI4MD
-AyNDAwNywxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbODY3MTMwNjUxLDcwMDAxNTAwMywxMjgwMD
+I0MDA3LDE0NzA5NzQ5NTFdfQ==
 -->
