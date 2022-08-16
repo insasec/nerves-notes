@@ -66,18 +66,19 @@ mmcblk1     179:0    0 29,7G  0 disk
 └─mmcblk1p4 179:4    0 29,4G  0 part /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2
 ```
 
+On a Linux system you should be able to access the `/root`/`/data` partition and verify the content we've written from Nerves above:
+
+```
 udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
 nerves_ssh  user.data
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ cat user.data 
-Hello Worldudos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ 
-
-
-
+Hello Worldudos
+```
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyODk4NzU1MSw3MDAwMTUwMDMsMTI4MD
+eyJoaXN0b3J5IjpbMTQ0NzY2MzIwNiw3MDAwMTUwMDMsMTI4MD
 AyNDAwNywxNDcwOTc0OTUxXX0=
 -->
