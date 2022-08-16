@@ -47,7 +47,7 @@ iex(1)> File.write("/root/user.data", "Hello World")
 
 If you plugin the card into a PC you are also able to read/write on this partition.
 
-> :warning: **If you plug the SD Card into a PC or Mac you won't see the content!** `f2fs` is only supported on Linux systems at the moment.
+> :warning: **If you plug the SD Card into a Windows PC or Mac you won't see the content!** `f2fs` is only supported on Linux systems at the moment.
 
 ```
 udos@tuxbook:~$ mount
@@ -76,6 +76,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ cat user.data
 Hello World
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY3MTMwNjUxLDcwMDAxNTAwMywxMjgwMD
-I0MDA3LDE0NzA5NzQ5NTFdfQ==
+eyJoaXN0b3J5IjpbNDYxNDEzMzQyLDg2NzEzMDY1MSw3MDAwMT
+UwMDMsMTI4MDAyNDAwNywxNDcwOTc0OTUxXX0=
 -->
