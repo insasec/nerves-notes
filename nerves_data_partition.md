@@ -28,8 +28,15 @@ iex(4)> File.write("/root/user.data", "Hello World")
 :ok
 ```
 
+udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
+udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
+nerves_ssh  user.data
+udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ cat user.data 
+Hello Worldudos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ 
+
+
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3MDk3NDk1MV19
+eyJoaXN0b3J5IjpbNTczMjIwMDAsMTQ3MDk3NDk1MV19
 -->
