@@ -39,10 +39,13 @@ none on /sys/kernel/config type configfs (rw,relatime)
 0
 ```
 
-As expected you can of course write
-iex(4)> File.write("/root/user.data", "Hello World")
+As expected you can of course write to `/root` or `/data`:
+```elixir
+iex(1)> File.write("/root/user.data", "Hello World")
 :ok
 ```
+
+If you plugin the card into a PC you are also able to read/write on this partition. The biggest limitation is sup
 
 udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
@@ -116,6 +119,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzcwODUxNjg3LDcwMDAxNTAwMywxMjgwMD
-I0MDA3LDE0NzA5NzQ5NTFdfQ==
+eyJoaXN0b3J5IjpbLTE5MDM2NzE4NzcsNzAwMDE1MDAzLDEyOD
+AwMjQwMDcsMTQ3MDk3NDk1MV19
 -->
