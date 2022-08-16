@@ -45,9 +45,9 @@ iex(1)> File.write("/root/user.data", "Hello World")
 :ok
 ```
 
-If you plugin the card into a PC you are also able to read/write on this partition. The biggest limitation is support for the `f2fs` filesystem though. 
+If you plugin the card into a PC you are also able to read/write on this partition.
 
-> :information_source: AFAIK `f2fs` is only supported on Linux systems at the moment. **If you plug the SD Card into a PC or Mac you won't see the content!**
+> :warning: **If you plug the SD Card into a PC or Mac you won't see the content!** `f2fs` is only supported on Linux systems at the moment.
 
 udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
@@ -55,8 +55,8 @@ nerves_ssh  user.data
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ cat user.data 
 Hello Worldudos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ 
 
-
-udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ mount
+```
+udos@tuxbook:~$ mount
 sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
 proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
 udev on /dev type devtmpfs (rw,nosuid,relatime,size=16363632k,nr_inodes=4090908,mode=755,inode64)
@@ -109,6 +109,8 @@ portal on /run/user/1000/doc type fuse.portal (rw,nosuid,nodev,relatime,user_id=
 /dev/mmcblk1p2 on /media/udos/disk type squashfs (ro,nosuid,nodev,relatime,errors=continue,uhelper=udisks2)
 /dev/mmcblk1p3 on /media/udos/disk1 type squashfs (ro,nosuid,nodev,relatime,errors=continue,uhelper=udisks2)
 /dev/mmcblk1p4 on /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2 type f2fs (rw,nosuid,nodev,relatime,lazytime,background_gc=on,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,checkpoint_merge,fsync_mode=posix,discard_unit=block,uhelper=udisks2)
+```
+
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ lsblk /dev/mmcblk1
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1     179:0    0 29,7G  0 disk 
@@ -121,6 +123,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MTg1NzQ2Myw3MDAwMTUwMDMsMTI4MD
-AyNDAwNywxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbLTE4MjMxNjY2ODIsNzAwMDE1MDAzLDEyOD
+AwMjQwMDcsMTQ3MDk3NDk1MV19
 -->
