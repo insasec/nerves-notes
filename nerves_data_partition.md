@@ -45,7 +45,7 @@ iex(1)> File.write("/root/user.data", "Hello World")
 :ok
 ```
 
-If you plugin the card into a PC you are also able to read/write on this partition. The biggest limitation is sup
+If you plugin the card into a PC you are also able to read/write on this partition. The biggest limitation is support for the `f2fs` filesystem though. AFAIK `f2fs
 
 udos@tuxbook:~$ cd /media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2/
 udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$ ls
@@ -119,6 +119,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDM2NzE4NzcsNzAwMDE1MDAzLDEyOD
-AwMjQwMDcsMTQ3MDk3NDk1MV19
+eyJoaXN0b3J5IjpbMTAwMjQ4NDMwNiw3MDAwMTUwMDMsMTI4MD
+AyNDAwNywxNDcwOTc0OTUxXX0=
 -->
