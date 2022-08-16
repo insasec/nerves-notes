@@ -19,7 +19,8 @@ drwxr-xr-x    4 root     root        4.0K Jul 25  2020 .
 0
 ``` 
 
-Checking the mountpoints one can see that `/root` is a [`f2fs` Filesystem](https://en.wikipedia.org/wiki/F2FS) mounted from `/dev/mmcblk0p4`. So this is partition 4 (`p4`) on the first mmc block device (`mmcblk0`). This is also in line with 
+Checking the mountpoints one can see that `/root` is a [`f2fs` Filesystem](https://en.wikipedia.org/wiki/F2FS) mounted from `/dev/mmcblk0p4`. So this is partition 4 (`p4`) on the first mmc block device (`mmcblk0`). This is also in line with Nerves documentation on [Partitions](https://hexdocs.pm/nerves/advanced-configuration.html#partitions):
+
 ```elixir
 iex(1)> cmd "mount"
 /dev/mmcblk0p3 on / type squashfs (ro,relatime)
@@ -36,8 +37,9 @@ cpu on /sys/fs/cgroup/cpu type cgroup (rw,nosuid,nodev,noexec,relatime,cpu)
 memory on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
 none on /sys/kernel/config type configfs (rw,relatime)
 0
+```
 
-
+As expected you can of course write
 iex(4)> File.write("/root/user.data", "Hello World")
 :ok
 ```
@@ -114,6 +116,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDUyOTIzOTgsNzAwMDE1MDAzLDEyOD
-AwMjQwMDcsMTQ3MDk3NDk1MV19
+eyJoaXN0b3J5IjpbMzcwODUxNjg3LDcwMDAxNTAwMywxMjgwMD
+I0MDA3LDE0NzA5NzQ5NTFdfQ==
 -->
