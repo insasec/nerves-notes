@@ -1,5 +1,6 @@
 # `/data` on a Nerves system
-A Nerves application should only store user data under `/data`. On first glance one might assume that `/data` is a mount point for the application data partition. However checking on a Nerves system yields:
+A Nerves application should only store user data under `/data` (see [Where can persistent data be stored?](https://hexdocs.pm/nerves/faq.html#where-can-persistent-data-be-stored)). On first glance one might assume that `/data` is a mount point for the application data partition. However checking on a Nerves system yields:
+
 ```elixir
 iex(1)> cmd "ls -alhd /data"
 lrwxrwxrwx    1 root     root           4 Jul 23 14:33 /data -> root
@@ -7,6 +8,7 @@ lrwxrwxrwx    1 root     root           4 Jul 23 14:33 /data -> root
 ```
 
 So `/data` is a symbolic link to `/root` which is `root`'s home directory.
+
 ```elixir
 iex(3)> cmd "ls -alh /root" 
 drwxr-xr-x    3 root     root        3.4K Jul 25  2020 .cache
@@ -17,6 +19,7 @@ drwxr-xr-x    4 root     root        4.0K Jul 25  2020 .
 0
 ``` 
 
+Checking the mountpoints one can
 ```elixir
 iex(1)> cmd "mount"
 /dev/mmcblk0p3 on / type squashfs (ro,relatime)
@@ -111,5 +114,6 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MDAyNDAwNywxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbNzY0OTc5NjMyLDEyODAwMjQwMDcsMTQ3MD
+k3NDk1MV19
 -->
