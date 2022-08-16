@@ -1,7 +1,21 @@
 # `/data` on a Nerves system
 A Nerves application should only store user data under `/data`. On first glance one might assume that `/data` is a mount point for the application data partition. However checking on a Nerves system yields:
-```shell
+```elixir
+iex(1)> cmd "ls -alhd /data"
+lrwxrwxrwx    1 root     root           4 Jul 23 14:33 /data -> root
+0
+```
 
+So `/data` is a symbolic link to `/root` which is `root`'s home directory.
+```elixir
+iex(3)> cmd "ls -alh /root" 
+drwxr-xr-x    3 root     root        3.4K Jul 25  2020 .cache
+drwxr-xr-x    3 root     root        3.4K Jul 25  2020 nerves_ssh
+-rw-r--r--    1 root     root           0 Aug 16 08:57 .nerves_time
+drwxr-xr-x   19 1000     1000         257 Jul 23 14:33 ..
+drwxr-xr-x    4 root     root        4.0K Jul 25  2020 .
+0
+``` 
 
 ```elixir
 iex(1)> cmd "mount"
@@ -19,16 +33,8 @@ cpu on /sys/fs/cgroup/cpu type cgroup (rw,nosuid,nodev,noexec,relatime,cpu)
 memory on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
 none on /sys/kernel/config type configfs (rw,relatime)
 0
-iex(2)> cmd "ls -alhd /data"
-lrwxrwxrwx    1 root     root           4 Jul 23 14:33 /data -> root
-0
-iex(3)> cmd "ls -alh /root" 
-drwxr-xr-x    3 root     root        3.4K Jul 25  2020 .cache
-drwxr-xr-x    3 root     root        3.4K Jul 25  2020 nerves_ssh
--rw-r--r--    1 root     root           0 Aug 16 08:57 .nerves_time
-drwxr-xr-x   19 1000     1000         257 Jul 23 14:33 ..
-drwxr-xr-x    4 root     root        4.0K Jul 25  2020 .
-0
+
+
 iex(4)> File.write("/root/user.data", "Hello World")
 :ok
 ```
@@ -105,5 +111,5 @@ udos@tuxbook:/media/udos/553921f6-9b97-4e0e-a08f-4b4ebb7f70e2$
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NjA0NDk5OSwxNDcwOTc0OTUxXX0=
+eyJoaXN0b3J5IjpbMTI4MDAyNDAwNywxNDcwOTc0OTUxXX0=
 -->
