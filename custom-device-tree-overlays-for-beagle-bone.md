@@ -10,7 +10,7 @@ This configuration can be changed during runtime (to a limited extend) using too
 
 Device tree overlays are used by the Linux kernel to configure hardware incl. GPIO pins. In addition to properties like input/output use or pull up/down resistors you can also change by which kernel sub system a pin is handled. E.g. the following device tree overlay configures and converts four pins from GPIO use to LED. I.e. from the kernel point of view they are not GPIOs anymore, but LEDs accessible under  `/sys/class/leds/`:
 
-```dts
+```c
 /dts-v1/;
 /plugin/;
 
@@ -378,5 +378,5 @@ $ make extra-dts-dirclean && make
 
 This will force buildroot to clean the  `extra-dts`  build directory and rebuild the system. Based on your setup you might also need to run  `mix compile`  or even  `mix nerves.artifact`  and upload the artifact. Still much faster than rebuilding the whole system.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyMzE4ODc1M119
+eyJoaXN0b3J5IjpbNjM3NDkwMzUxLC01MjMxODg3NTNdfQ==
 -->
